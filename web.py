@@ -3,16 +3,19 @@ import functions
 
 todos = functions.get_todos()
 
+
 def add_todo():
     todo_local = st.session_state["new_todo"]
     todos.append(todo_local)
     functions.write_todos(todos)
     st.session_state["new_todo"] = ""
 
-def delete_todo(index):
-    todos.pop(index)
+
+def delete_todo(index_local):
+    todos.pop(index_local)
     functions.write_todos(todos)
     st.rerun()
+
 
 st.title("My Todo App")
 st.subheader("This is my todo app!")
