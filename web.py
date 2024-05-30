@@ -21,6 +21,9 @@ st.title("My Todo App")
 st.subheader("This is my todo app!")
 st.write("This app is to increase your productivity.")
 
+st.text_input(label="Adauga ToDo", placeholder="Add new todo... and press ENTER",
+              on_change=add_todo, key='new_todo')
+
 for index, todo in enumerate(todos):
     col1, col2 = st.columns([0.8, 0.2])
     with col1:
@@ -29,8 +32,5 @@ for index, todo in enumerate(todos):
         if st.button("Delete", type="primary", key=f"delete_{index}", on_click=lambda i=index: delete_todo(i),
                      args=(index,), use_container_width=True):
             pass
-
-st.text_input(label="Adauga ToDo", placeholder="Add new todo...",
-              on_change=add_todo, key='new_todo')
 
 print("It's Working!")
